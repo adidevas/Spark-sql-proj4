@@ -1,33 +1,93 @@
 # Spark-sql-proj4
 This project performs large-scale data processing and analytical queries on global city temperature data using PySpark. The objective is to simulate database-style transformations and aggregations on structured datasets and generate query-based outputs similar to SQL operations.
 
-In this project, you will use Apache Spark to solve the following questions using Spark SQL /
-Spark DataFrame API.
-Please use Google Colab to run the problems. It is a free, cloud-based platform that allows you to
-write and execute Python code directly in your browser without any setup.
-For this project, you will use the following input files.
-i. city_temperature.csv: contains the day level average temperature values of major cities.
-The file includes 8 columns: Region, Country, State, City, Month, Day, Year, and
-AvgTemperature.
-ii. country-list.csv: contains the capital names for each country. The file includes 3 columns:
-country, capital, and type.
-Q1. Your Spark implementation should compute the following: (100 Points)
-A. B. Find the average of AvgTemperature for each Region. (15 Points)
-Find the average of AvgTemperature by Year for countries only located in the “Africa”
-Region. (15 Points)
-C. Find the average of AvgTemperature by City only located in the Country “Jordan”. (15
-Points)
-D. For each country, find the capital and average of AvgTemperature of that capital city. (15
-Points)
-Your output should show:
-<Capital City><TAB><Country><TAB><Avg of AvgTemperature of the Capital only>
-For example, Paris is the capital of France. Therefore, when you calculate the average of
-AvgTemperature for France, only consider the AvgTemperature values of the city Paris.
-E. Solve the question 1D using a broadcast variable. (20 Points)
-F. Solve the question 1D. While solving this question, please utilize the User Defined
-Function (UDF) to do the following tasks: (20 Points)
-i. ii. Use a UDF to filter the years so that Year >= 2012
-Use a UDF to display your final output for each row as follows:
-<Capital> is the capital of <Country> and its average temperature is <Avg of
-AvgTemperature>
+Project Description – Spark SQL Temperature Data Analysis
 
+This project implements large-scale data processing and analytical queries using PySpark on global city temperature data.
+
+The objective is to simulate SQL-style data transformations and aggregations using Spark DataFrames while working with structured CSV datasets.
+
+The assignment focuses on:
+	•	Loading and validating structured datasets
+	•	Cleaning and filtering invalid records
+	•	Performing aggregation and grouping operations
+	•	Generating query-based analytical outputs
+	•	Exporting results into structured CSV files
+
+
+The project uses two input datasets:
+
+1. city_temperature.csv
+
+Contains historical temperature records for cities worldwide.
+Columns include:
+	•	Region
+	•	Country
+	•	State
+	•	City
+	•	Month
+	•	Day
+	•	Year
+	•	AverageTemperature
+
+This dataset is used for all analytical queries.
+
+⸻
+
+2. country-list.csv
+
+Contains country codes and corresponding country names.
+Used for validating and mapping country information when necessary.
+
+Tasks Implemented:
+
+The project includes multiple query-based tasks, each producing a corresponding output file.
+
+Q1A – Basic Data Filtering
+	•	Remove invalid temperature records
+	•	Handle missing or malformed entries
+	•	Export cleaned dataset
+
+  Q1A_output.csv
+
+Q1B – Aggregation Operations
+	•	Perform grouping and aggregation operations
+	•	Compute statistical measures such as averages
+
+  Q1B_output.csv
+
+Q1C – Advanced Filtering
+	•	Apply conditional filtering based on specific temperature or regional criteria
+
+  Q1C_output.csv
+
+Q1D – Grouped Analytics
+	•	Perform multi-column group-by operations
+	•	Aggregate results by country, region, or time period
+
+Q1D_output.csv
+
+Q1E – Additional Transformations
+	•	Perform additional transformations and calculations
+	•	Generate formatted analytical outputs
+
+Q1E_output.csv
+
+Q1F – Two-Part Processing
+
+Part 1:
+	•	Filter dataset according to specified constraints
+	•	Export intermediate result
+
+Q1F_part1_filtered.csv
+
+Part 2:
+	•	Format and structure final analytical results
+	•	Produce finalized output
+
+Q1F_part2_formatted.csv
+
+
+
+
+  
